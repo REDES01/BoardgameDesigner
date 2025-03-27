@@ -1,0 +1,8 @@
+user: can you provide the functions you can use
+assistant: I have access to the following functions:
+
+1. `Players-create_player`: This function creates a new player that can play a game and provide feedback. It requires a `name` parameter, which is a string.
+
+2. `Players-find_player`: This function checks if a player with a certain name exists. It also requires a `name` parameter, which is a string.
+
+Additionally, I can use the `multi_tool_use.parallel` function to execute multiple functions simultaneously if they can operate in parallel.

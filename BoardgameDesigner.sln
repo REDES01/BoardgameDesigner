@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardgameDesigner", "BoardgameDesigner.csproj", "{EDADFC7F-2270-37B4-CDCE-4B9D0952B883}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardgameDesigner.Tests", "..\BoardgameDesigner.Tests\BoardgameDesigner.Tests.csproj", "{A2C59164-139C-4E8C-BC93-81D91C433D8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{EDADFC7F-2270-37B4-CDCE-4B9D0952B883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDADFC7F-2270-37B4-CDCE-4B9D0952B883}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDADFC7F-2270-37B4-CDCE-4B9D0952B883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C59164-139C-4E8C-BC93-81D91C433D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C59164-139C-4E8C-BC93-81D91C433D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C59164-139C-4E8C-BC93-81D91C433D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C59164-139C-4E8C-BC93-81D91C433D8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

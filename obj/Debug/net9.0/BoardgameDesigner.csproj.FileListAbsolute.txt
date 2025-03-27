@@ -46,3 +46,4 @@ C:\Users\47659\Desktop\AI\BoardgameDesigner\bin\Debug\net9.0\Microsoft.Extension
 C:\Users\47659\Desktop\AI\BoardgameDesigner\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\47659\Desktop\AI\BoardgameDesigner\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\47659\Desktop\AI\BoardgameDesigner\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\47659\Desktop\AI\BoardgameDesigner\obj\Debug\net9.0\BoardgameDesigner.sourcelink.json

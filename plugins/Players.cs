@@ -11,19 +11,23 @@ using System.IO;
 
 public class Players:Agent
 {
-
     private static List<Player> players = new List<Player>();
 
+    public int PlayerCount { get=>players.Count; }
     // builder for players
-
+    
 
     [KernelFunction("create_player")]
-    [Description("Create a new player that can play the game and give feedbacks.")]
+    [Description("Create a new player with distinct name.")]
     public static string CreatePlayer(string name)
     {
-        var player = new Player(name);
-        players.Add(player);
-        return "Player created.";
+        var player = players.Find(p => p.Name == name);
+        if (player == null)
+        {
+            players.Add(new Player(name));
+            return "Player created.";
+        }
+        return "Player already exists.";
     }
 
     [KernelFunction("find_player")]

@@ -8,10 +8,11 @@ using System.IO;
 
 public class GameManager : Agent
 {
+    public Players Players { get; set; }
     public GameManager() : base()
     {
         // add plugins
-        kernel.Plugins.AddFromObject(new Players());
+        kernel.Plugins.AddFromObject(Players=new Players());
     }
 
     public ChatHistory ManagerHistory { get => chatHistory; }
@@ -28,6 +29,5 @@ public class GameManager : Agent
         );
         Console.WriteLine(reply.ToString());
         chatHistory.AddAssistantMessage(reply.ToString());
-
     }
 }

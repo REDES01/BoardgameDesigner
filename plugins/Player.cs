@@ -20,7 +20,25 @@ public class Player:Agent
         FeedBacks = new List<string>();
     }
     
-    [KernelFunction("add_feedback")]
+    // todo draw a card
+    [KernelFunction("draw_a_card")]
+    [Description("Draw a card from a deck and add it to your hand.")]
+
+    public void DrawACard(string deckName)
+    {
+        
+    }
+    
+    // todo play a card
+    [KernelFunction("play_a_card")]
+    [Description("Play a card from your hand.")]
+
+    public void PlayACard(string deckName)
+    {
+        
+    }
+    
+    [KernelFunction("give_feedback")]
     [Description("Add feedback based on a players previous experience.")]
 
     public void AddFeedBack(string feedback)

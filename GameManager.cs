@@ -8,14 +8,16 @@ using System.IO;
 
 public class GameManager : Agent
 {
-    public Players Players { get; set; }
+
+    public PlayersManager PlayersManager { get; init; }
     public GameManager() : base()
     {
         // add plugins
-        kernel.Plugins.AddFromObject(Players=new Players());
+        kernel.Plugins.AddFromObject(PlayersManager=new PlayersManager());
     }
 
-    public ChatHistory ManagerHistory { get => chatHistory; }
+    public ChatHistory ManagerHistory => chatHistory;
+
     public void AddUserMessage(string s)
     {
         chatHistory.AddUserMessage(s);

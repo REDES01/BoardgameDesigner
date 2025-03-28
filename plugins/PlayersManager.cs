@@ -9,11 +9,15 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using System.IO;
 
-public class Players:Agent
+/// <summary>
+/// Manages all players
+/// 
+/// </summary>
+public class PlayersManager:Agent
 {
-    private static List<Player> players = new List<Player>();
+    private static readonly List<Player> _players = new List<Player>();
 
-    public int PlayerCount { get=>players.Count; }
+    public int PlayerCount { get=>_players.Count; }
     // builder for players
     
 
@@ -21,10 +25,10 @@ public class Players:Agent
     [Description("Create a new player with distinct name.")]
     public static string CreatePlayer(string name)
     {
-        var player = players.Find(p => p.Name == name);
+        var player = _players.Find(p => p.Name == name);
         if (player == null)
         {
-            players.Add(new Player(name));
+            _players.Add(new Player(name));
             return "Player created.";
         }
         return "Player already exists.";
@@ -34,7 +38,7 @@ public class Players:Agent
     [Description("Find if player with certain name exist.")]
     public static string GetPlayerInfo(string name)
     {
-        var player = players.Find(p => p.Name == name);
+        var player = _players.Find(p => p.Name == name);
         if (player == null)
         {
             return "Player not found.";

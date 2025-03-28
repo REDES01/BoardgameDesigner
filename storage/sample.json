@@ -1,0 +1,142 @@
+﻿[
+  {
+    "id": 1,
+    "type": "attack",
+    "name": "Fireball",
+    "description": "Deal 2 damage to a player.",
+    "value": 2
+  },
+  {
+    "id": 2,
+    "type": "attack",
+    "name": "Lightning Bolt",
+    "description": "Deal 3 damage to a player.",
+    "value": 3
+  },
+  {
+    "id": 3,
+    "type": "shield",
+    "name": "Ice Barrier",
+    "description": "Block up to 3 damage next time you're attacked.",
+    "value": 3
+  },
+  {
+    "id": 4,
+    "type": "shield",
+    "name": "Stone Skin",
+    "description": "Block 2 damage.",
+    "value": 2
+  },
+  {
+    "id": 5,
+    "type": "draw",
+    "name": "Focus",
+    "description": "Draw 2 cards.",
+    "value": 2
+  },
+  {
+    "id": 6,
+    "type": "draw",
+    "name": "Quick Study",
+    "description": "Draw 1 card.",
+    "value": 1
+  },
+  {
+    "id": 7,
+    "type": "reverse",
+    "name": "Wind Shift",
+    "description": "Reverse the turn order.",
+    "value": 0
+  },
+  {
+    "id": 8,
+    "type": "skip",
+    "name": "Temporal Freeze",
+    "description": "Skip the next player's turn.",
+    "value": 0
+  },
+  {
+    "id": 9,
+    "type": "attack",
+    "name": "Earthquake",
+    "description": "Deal 1 damage to all other players.",
+    "value": 1
+  },
+  {
+    "id": 10,
+    "type": "shield",
+    "name": "Reflective Ward",
+    "description": "Block 2 damage and reflect 1.",
+    "value": 2
+  },
+  {
+    "id": 11,
+    "type": "attack",
+    "name": "Blazing Arrow",
+    "description": "Deal 2 damage to a player.",
+    "value": 2
+  },
+  {
+    "id": 12,
+    "type": "draw",
+    "name": "Meditate",
+    "description": "Draw 3 cards.",
+    "value": 3
+  },
+  {
+    "id": 13,
+    "type": "skip",
+    "name": "Stun",
+    "description": "Skip the next player's turn.",
+    "value": 0
+  },
+  {
+    "id": 14,
+    "type": "attack",
+    "name": "Thunderclap",
+    "description": "Deal 1 damage to all players including yourself.",
+    "value": 1
+  },
+  {
+    "id": 15,
+    "type": "shield",
+    "name": "Aura of Protection",
+    "description": "Block next 1 damage from each player.",
+    "value": 1
+  },
+  {
+    "id": 16,
+    "type": "reverse",
+    "name": "Time Warp",
+    "description": "Reverse the turn order.",
+    "value": 0
+  },
+  {
+    "id": 17,
+    "type": "draw",
+    "name": "Arcane Insight",
+    "description": "Draw 2 cards.",
+    "value": 2
+  },
+  {
+    "id": 18,
+    "type": "attack",
+    "name": "Poison Cloud",
+    "description": "Deal 2 damage to a player over 2 turns.",
+    "value": 2
+  },
+  {
+    "id": 19,
+    "type": "shield",
+    "name": "Magic Shell",
+    "description": "Block 1 damage.",
+    "value": 1
+  },
+  {
+    "id": 20,
+    "type": "attack",
+    "name": "Shadow Strike",
+    "description": "Deal 3 damage. Cannot be blocked.",
+    "value": 3
+  }
+]

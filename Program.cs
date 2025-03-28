@@ -19,13 +19,6 @@ do
     await gameManager.GetReply();
 
     // logging chat history
-    using (StreamWriter sw = new StreamWriter(File.Open("./prompt_history/chatHistory.txt", FileMode.Truncate)))
-    {
-        foreach (var message in gameManager.ManagerHistory)
-        {
-            sw.WriteLine(message.Role + ": " + message.Content);
-        }
-    }
-
+    gameManager.SaveHistory("chatHistory.txt");
 } while (true);
 

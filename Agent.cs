@@ -49,4 +49,15 @@ public class Agent
         );
         chatHistory.AddAssistantMessage(reply.ToString());
     }
+    
+    public void SaveHistory(string filename)
+    {
+        using (StreamWriter sw = new StreamWriter(File.Open(FileSystem.AbsoluteFolderPath+"/prompt_history/"+filename, FileMode.OpenOrCreate)))
+        {
+            foreach (var message in chatHistory)
+            {
+                sw.WriteLine(message.Role + ": " + message.Content);
+            }
+        }
+    }
 }

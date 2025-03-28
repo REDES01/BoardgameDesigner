@@ -33,15 +33,16 @@ public class Deck(string name, List<dynamic> cards)
 /// </summary>
 public class DecksManager
 {
-    public DecksManager(){}
-    private static readonly List<Deck> _decks=new List<Deck>();
-    public int DeckCount => _decks.Count;
-    public static string DeckNames => String.Join(",",_decks.Select(d=>d.Name));
+
+    private static readonly List<Deck?> Decks=new List<Deck?>();
+
+    public int DeckCount => Decks.Count;
+    public static string DeckNames => String.Join(",",Decks.Select(d=>d.Name));
 
     [KernelFunction("create_deck")]
     [Description("Load a json file and create a new deck of cards and add it to the decks.")]
 
-    public static void CreateDeck(string deckName="sample")
+    public static void CreateDeck(string deckName="example")
     {
            string filepath = FileSystem.AbsoluteFolderPath+"/storage/"+deckName+".json";
            string filecontent = File.ReadAllText(filepath);
@@ -49,10 +50,16 @@ public class DecksManager
            var cards=JsonSerializer.Deserialize<List<dynamic>>(filecontent)!;
            // Console.WriteLine(_deck.Count);
            // Console.WriteLine(_deck);
-           Deck deck=new Deck(deckName,cards);
-           _decks.Add(deck);
+           Deck? deck=new Deck(deckName,cards);
+           Decks.Add(deck);
            Console.WriteLine($"Deck loaded: {deckName}");
-           Console.WriteLine($"Deck count: {_decks.Count}");
+           Console.WriteLine($"Deck count: {Decks.Count}");
            Console.WriteLine($"Deck names: {DeckNames}");
+    }
+
+    // get a deck by name
+    public static Deck? GetDeck(string name)
+    {
+        return Decks.Find(d => d!.Name == name);
     }
 }

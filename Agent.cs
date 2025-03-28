@@ -40,6 +40,10 @@ public class Agent
         chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
     }
 
+    public void AddUserMessage(string s)
+    {
+        chatHistory.AddUserMessage(s);
+    }
     public virtual async Task GetReply()
     {
         ChatMessageContent reply = await chatCompletionService.GetChatMessageContentAsync(

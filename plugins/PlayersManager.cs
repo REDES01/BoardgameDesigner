@@ -45,4 +45,9 @@ public class PlayersManager:Agent
         }
         return "Player found.";
     }
+
+    public Player GetPlayer(string name)
+    {
+        return _players.Find(p => p.Name == name)!;
+    }
 }

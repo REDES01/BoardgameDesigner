@@ -1,4 +1,6 @@
-﻿namespace BoardgameDesigner;
+﻿using System.Security.Cryptography;
+
+namespace BoardgameDesigner;
 
 using System.ComponentModel;
 using Microsoft.Extensions.Configuration;
@@ -8,10 +10,12 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.VisualBasic;
 
 public class Player:Agent
-{    public string Name { get; set; }
+{    
+    public string Name { get; set; }
     public string Rule { get; set; }
     public List<string> FeedBacks { get; set; }
 
+    private List<dynamic> _hand=new List<dynamic>();
     public Player(string name, string rule = "")
     {
         Name = name;
@@ -20,13 +24,24 @@ public class Player:Agent
         FeedBacks = new List<string>();
     }
     
-    // todo draw a card
-    [KernelFunction("draw_a_card")]
-    [Description("Draw a card from a deck and add it to your hand.")]
 
+    [KernelFunction("draw_a_card")]
+    [Description("Draw a card from a deck with a name and add it to your hand.")]
+    
     public void DrawACard(string deckName)
     {
-        
+        var deck=DecksManager.GetDeck(deckName);
+        if (deck != null)
+        {
+            var card = deck!.DrawTop();
+            _hand.Add(card);
+            Console.WriteLine(card.ToString());
+        }
+        else
+        {
+            chatHistory.AddUserMessage($"Deck {deckName} not found");
+            Console.WriteLine($"Deck {deckName} not found");
+        }
     }
     
     // todo play a card

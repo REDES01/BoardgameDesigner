@@ -14,14 +14,12 @@ public class GameManager : Agent
     {
         // add plugins
         kernel.Plugins.AddFromObject(PlayersManager=new PlayersManager());
+        kernel.Plugins.AddFromObject(new DecksManager());
     }
 
     public ChatHistory ManagerHistory => chatHistory;
 
-    public void AddUserMessage(string s)
-    {
-        chatHistory.AddUserMessage(s);
-    }
+
     public override async Task GetReply()
     {
         ChatMessageContent reply = await chatCompletionService.GetChatMessageContentAsync(

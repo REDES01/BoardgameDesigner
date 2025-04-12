@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace BoardgameDesigner;
@@ -10,17 +11,21 @@ using Microsoft.SemanticKernel;
 /// </summary>
 /// <param name="name">name of the deck</param>
 /// <param name="cards">cards in the deck</param>
-public class Deck(string name, List<dynamic> cards)
+public class Deck(string name, List<JsonNode> cards)
 {
     public string Name { get; init; } = name;
-    private List<dynamic> _cards = cards;
-    
-    public void AddToTopCard(dynamic card)
+    private List<JsonNode> _cards = cards;
+
+    public void Shuffle()
+    {
+        _cards = _cards.OrderBy(x => Guid.NewGuid()).ToList();
+    }
+    public void AddToTopCard(JsonNode card)
     {
         _cards.Add(card);
     }
 
-    public dynamic DrawTop()
+    public JsonNode DrawTop()
     {
         var card=_cards[^1];
         _cards.RemoveAt(_cards.Count - 1);
@@ -46,11 +51,10 @@ public class DecksManager
     {
            string filepath = FileSystem.AbsoluteFolderPath+"/storage/"+deckName+".json";
            string filecontent = File.ReadAllText(filepath);
-           // Console.WriteLine(filecontent);
-           var cards=JsonSerializer.Deserialize<List<dynamic>>(filecontent)!;
-           // Console.WriteLine(_deck.Count);
-           // Console.WriteLine(_deck);
-           Deck? deck=new Deck(deckName,cards);
+           var cards=JsonSerializer.Deserialize<List<JsonNode>>(filecontent)!;
+           
+           Deck? deck = new Deck(deckName, cards);
+           deck.Shuffle();
            Decks.Add(deck);
            Console.WriteLine($"Deck loaded: {deckName}");
            Console.WriteLine($"Deck count: {Decks.Count}");
@@ -58,6 +62,9 @@ public class DecksManager
     }
 
     // get a deck by name
+    
+    [KernelFunction("get_deck")]
+    [Description("Get a deck by its name.")]
     public static Deck? GetDeck(string name)
     {
         return Decks.Find(d => d!.Name == name);

@@ -10,8 +10,8 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 using System.IO;
 
 /// <summary>
+/// A plugin to GameManager
 /// Manages all players
-/// 
 /// </summary>
 public class PlayersManager:Agent
 {

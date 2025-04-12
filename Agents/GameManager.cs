@@ -8,7 +8,6 @@ using System.IO;
 
 public class GameManager : Agent
 {
-
     public PlayersManager PlayersManager { get; init; }
     public GameManager() : base()
     {

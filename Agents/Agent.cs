@@ -40,10 +40,17 @@ public class Agent
         chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
     }
 
+    /// <summary>
+    /// Instruct the agent
+    /// </summary>
+    /// <param name="s">Instruction</param>
     public void AddUserMessage(string s)
     {
         chatHistory.AddUserMessage(s);
     }
+    /// <summary>
+    /// Get reply from Agent
+    /// </summary>
     public virtual async Task GetReply()
     {
         ChatMessageContent reply = await chatCompletionService.GetChatMessageContentAsync(
@@ -51,9 +58,14 @@ public class Agent
             kernel: kernel,
             executionSettings: openAIPromptExecutionSettings
         );
+        Console.WriteLine(reply.ToString());
         chatHistory.AddAssistantMessage(reply.ToString());
     }
     
+    /// <summary>
+    /// Save all chats to a file 
+    /// </summary>
+    /// <param name="filename">file location</param>
     public void SaveHistory(string filename)
     {
         using (StreamWriter sw = new StreamWriter(File.Open(FileSystem.AbsoluteFolderPath+"/prompt_history/"+filename, FileMode.OpenOrCreate)))
